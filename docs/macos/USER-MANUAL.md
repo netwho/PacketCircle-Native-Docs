@@ -4,7 +4,7 @@
 <img src="../assets/logo.png" alt="PacketCircle" width="180" />
 </p>
 
-*Tech Preview (1.1.0). Screenshots below should be captured against the current build using the built-in Demo Mode capture, in **dark mode**, to match the iOS manual's convention.*
+*Tech Preview (1.1.0). Screenshots below are from the current build against the built-in Demo Mode capture (`PacketCircleDemo.pcap`), in **dark mode**.*
 
 ---
 
@@ -15,14 +15,14 @@ PacketCircle macOS is the desktop half of PacketCircle Native — a Swift/SwiftU
 ### What PacketCircle macOS is
 
 - A **capture visualizer** built around **conversation topology** (the circle), a sortable **pair table**, **rate/quality gauges**, and a **native packet Decode window**.
-- A **desktop-native** app: multiple windows (Decode opens separately), **live capture** from local interfaces, **replay** of a capture at original timing, and one-click **handoff to Wireshark** when you need its full dissector depth.
+- A **desktop-native** app: Decode opens in its own window, **live capture** from local interfaces, **replay** of a capture at original timing, and one-click **handoff to Wireshark** when you need its full dissector depth.
 - A **proprietary** product (see [License](../LICENSE.md)), implemented in Swift.
 
 ### What PacketCircle macOS is not
 
 **PacketCircle is not a desktop Wireshark.**
 
-It contains no open-source Wireshark / libwireshark dissection. Decode is native and best-effort: solid IP/TCP/UDP detail and some application-layer recognition, not dissector-for-dissector parity with Wireshark. When you need that depth, use **Open in Wireshark** to hand off the capture with the current display filter already copied.
+It contains no open-source Wireshark / libwireshark dissection. Decode is native and best-effort: solid IP/TCP/UDP detail and some application-layer recognition, not dissector-for-dissector parity with Wireshark. TCP session-quality grades are a **native heuristic**, explicitly labeled "not Wireshark `tcp.analysis`" wherever shown. When you need full dissector depth, **Open in Wireshark** hands the capture off with the current display filter already copied.
 
 For caveats and capacity notes, see [Limitations](LIMITATIONS.md).
 
@@ -33,11 +33,13 @@ For caveats and capacity notes, see [Limitations](LIMITATIONS.md).
 | Step | Action |
 |------|--------|
 | 1 | Open `PacketCircle.app` (Tech Preview DMG — see [Quickstart](QUICKSTART.md) for install). |
-| 2 | **File → Open Capture…** (`⌘O`) to load a PCAP/PCAPNG, or **File → Demo Mode** (`⌥⌘D`) if you just want to look around. |
-| 3 | For live traffic, **File → Interfaces…** (`⇧⌘I`) instead. |
+| 2 | **Open Capture…** (`⌘O`) to load a PCAP/PCAPNG, or **Demo Mode** if you just want to look around. |
+| 3 | For live traffic, **Interfaces…** (`⇧⌘I`) instead. |
 | 4 | Explore **Circle → Table → Gauges** from the view-options bar; open **Decode** (`⇧⌘D`) when you need packet-level detail. |
 
-**Screenshot 01** — empty main window before any capture is loaded, toolbar visible.
+Before anything is loaded, the main window offers the same four entry points directly on the canvas:
+
+![Empty window](../assets/manual-macos/01-empty.png)
 
 ---
 
@@ -45,7 +47,9 @@ For caveats and capacity notes, see [Limitations](LIMITATIONS.md).
 
 The window is a single split view: a **sidebar** (pair list + protocol legend) on the left, and the active **display mode** (Circle / Table / Gauges) on the right, with a two-row toolbar above.
 
-**Screenshot 02** — full window, Circle view populated from Demo Mode, sidebar and legend visible.
+![Circle view, Demo Mode loaded](../assets/manual-macos/02-overview.png)
+
+Loading a capture adds a second row of toolbar icons for export, reset, report, external-open, and close, next to the transport controls. The protocol legend at the bottom of the sidebar lists every protocol seen in the capture in two columns (HTTP, FTP, SMB, mDNS, Syslog, UDP (raw) · SSH, Telnet, DNS, NTP, TCP (raw) in the demo capture); click one to filter, and where the list is long a **Show all** link expands it.
 
 ### 3.1 Primary toolbar
 
@@ -54,34 +58,36 @@ The window is a single split view: a **sidebar** (pair list + protocol legend) o
 | Open | `⌘O` | Open a PCAP/PCAPNG file |
 | Interfaces | `⇧⌘I` | Choose a local interface and start a live capture |
 | Transport controls | — | Start / pause / resume / stop the current live capture or replay |
-| Save | `⌘S` | Save Capture As… |
-| Save to Downloads | `⌥⌘S` | Fallback save if the save panel misbehaves |
-| Replay | `⌥⌘R` | Replay the open file at its original inter-frame timing |
+| Export | `⌘S` | Save Capture As… |
 | **Reset** | — | Clears selection, protocol filter, and manual direction overrides. Icon fills accent-orange when there's something to clear, greyed out and disabled otherwise. |
-| Decode | `⇧⌘D` | Open the Decode window (unfiltered) |
-| Wireshark | — | Open the capture in Wireshark with the current display filter copied |
+| Report | — | Generate a session report |
+| Open externally | — | Hand the capture off (e.g. to Wireshark) |
 | Close | `⇧⌘W` | Close Capture — clear the session |
+| Decode | `⇧⌘D` | Open the Decode window |
 
 ### 3.2 View options bar
 
 | Control | Options | Role |
 |---|---|---|
 | Top N | 10 / 25 / 50 | How many conversations the Circle shows |
-| Weight by | Pkts / Bytes | What drives line thickness and Top-N ranking |
+| Layout mode | layers / cloud icons | Display grouping |
 | Display mode | Circle / Table / Gauges | Switch the main canvas |
-| Address mode | IP / MAC | Layer 3 vs layer 2 pairing |
-| Edge color | Proto / Quality | Color arcs by protocol category, or by native TCP session-quality grade |
-| Line weight | on/off | Toggle traffic-volume line thickness |
+| Address mode | globe / node-graph icons | IP vs MAC pairing |
+| Edge color | palette icon | Color arcs by protocol category, or by native TCP session-quality grade |
+| Line weight | waveform icon | Toggle traffic-volume line thickness |
+| Help | `?` | In-app help |
 
 ### 3.3 Sidebar
 
-The pair list mirrors what's on the circle (Top-N, filtered by the protocol legend). Hovering or selecting a row highlights the matching arc on the circle and vice versa; the header shows a live count. Below the list, the **protocol legend** lets you enable/disable protocols — disabled protocols disappear from both the list and the circle.
+The pair list ("Talkers list" in the app's own terminology — see Settings) mirrors what's on the circle, filtered by the protocol legend. Selecting a row highlights it orange and highlights the matching arc on the circle.
+
+![One pair selected in the sidebar](../assets/manual-macos/03-selected.png)
 
 ---
 
 ## 4. Circle view
 
-Hosts sit on a ring; each conversation is an arc, colored and weighted per the view options above. One-way traffic is dotted with an arrowhead; two-way traffic is a solid line (dual TCP+UDP pairs alternate dashes).
+Hosts sit on a ring as hexagonal nodes; each conversation is an arc, colored and weighted per the view options above. One-way traffic is dotted with an arrowhead; two-way traffic is a solid line (dual TCP+UDP pairs alternate dashes).
 
 **Gestures**
 
@@ -92,146 +98,149 @@ Hosts sit on a ring; each conversation is an arc, colored and weighted per the v
 | Click an arc | Select the conversation — opens the [connection popup](#5-connection-details-popup) |
 | Click a node | Select that host's busiest conversation |
 | Right-click an arc | Context menu (below) |
-| Right-click a node | Context menu (below) |
+| Right-click a node | Restart capture · host · Copy BPF · host · Select station |
 
-**Floating controls** (top-right of the canvas)
+**Floating canvas controls** (top-right): a search field (IP, CIDR, or name), fit-to-screen, rearrange (re-lay-out node angles for readability — angles then stay stable as a live graph grows), a **Hosts** toggle, and **Reset**.
 
-| Control | Role |
-|---|---|
-| Fit to screen | Reset zoom/pan to default |
-| Rearrange | Re-lay-out node angles for readability; angles then stay stable as a live graph grows |
+### 4.1 Right-click on an arc (conversation)
 
-**Screenshot 03** — Circle view with one conversation selected (thicker arc + white glow, matching sidebar row highlighted orange).
+![Context menu on a conversation](../assets/manual-macos/05-context-arc.png)
 
-### 4.1 Reset control
-
-**Screenshot 04** — toolbar Reset button in both states: inactive/grey (nothing to clear) and active/orange (a selection or narrowed protocol filter is in effect).
-
-### 4.2 Right-click on an arc (conversation)
-
-Restart capture · this conversation · Restart capture · *src* · Restart capture · *dst* · Follow TCP Stream · **Open in Decode…** · Copy Wireshark Filter · Copy BPF Filter · Select
-
-**Screenshot 05** — this context menu open on an arc.
-
-### 4.3 Right-click on a node (host)
-
-Restart capture · *host* · Copy BPF · host *host* · Select station
-
-**Screenshot 06** — this context menu open on a node.
+Restart capture · this conversation · Restart capture · *src* · Restart capture · *dst* · Follow TCP Stream · Copy Wireshark Filter · Copy BPF Filter · Select
 
 ---
 
 ## 5. Connection details popup
 
-Selecting a conversation (click an arc, a sidebar row, or a node) opens a floating popup on top of the circle with per-port detail for that pair.
+Selecting a conversation (click an arc, a sidebar row, or a node) opens a floating popup with a real triage panel for that pair — not just an address summary.
 
-**Screenshot 07** — the popup open, showing direction and per-port breakdown.
+![Connection popup with TCP session health and quality charts](../assets/manual-macos/07-popup.png)
 
-| Control | Role |
+| Section | Contents |
 |---|---|
-| Direction toggle | Cycle ↔ / → / ← for that pair (affects arrow/dash rendering and traffic totals) |
-| Copy filter | Copy a Wireshark display filter, optionally scoped to one port |
-| Open in Wireshark… | Hand the capture off to Wireshark with the filter copied |
-| Show in Decode | Open the Decode window pre-filtered to this pair (and port, if picked) |
-| Follow TCP Stream | Reassemble one TCP flow's payload |
-| Close (×) | Dismiss the popup — also clears the selection, so the sidebar row and circle arc stop being highlighted |
+| Header | Endpoints, packet/byte totals, directional split (→ / ←), protocol badge, direction (both/one-way) |
+| **TCP session health** | Grade (Excellent/Good/Fair/Poor) and score, response time, window size, window range, retransmits, RST count, zero-window count, SYN/FIN count, TCP packet count. Footer note: *"Native TCP estimate — not Wireshark `tcp.analysis`."* |
+| **Quality charts** | Handshake RTT (SYN → SYN/ACK), and an ACK-round-trip sparkline with median/min/p95/max labels over the sampled data segments |
+| Packet size | Average packet size for the pair |
+
+**Actions** (bottom of the popup): **Copy Filter** · **Decode** (opens the Decode window filtered to this pair) · **Follow TCP Stream** · **Wireshark** (opens in Wireshark with the filter copied) · **Save Session…** (save just this conversation out as its own capture file).
+
+Closing the popup (×) also clears the selection, so the sidebar row and circle arc stop being highlighted.
 
 ---
 
 ## 6. Table view
 
-A sortable table of the same Top-N pairs: Source, Destination, Packets, Bytes, and a protocol swatch + label.
+A sortable table of the same Top-N pairs, with real analysis columns rather than just addresses: Source, Destination, Ports, Pkts, Bytes, Protocol, **Quality** (grade + score), **Issues** (retransmit/zero-window counts as `R:n Z:n`), Window (size range), and further RTT/health columns off to the right.
 
-**Screenshot 08** — Table view with a few rows visible.
+![Table view with quality and issue columns](../assets/manual-macos/08-table.png)
 
 ---
 
 ## 7. Gauges view
 
-A dashboard of live-updating rate gauges and distribution charts:
+A dashboard of rate gauges and distribution charts:
 
-- Arc gauges for **packets/s**, **bytes/s**, and **errors/s**, each with a short sparkline history.
-- **Top talkers** bar chart (by bytes).
-- **Top protocols** bar chart (by packets).
+- Arc gauges for **packets/s**, **bytes/s**, and **errors/s**. Over a static capture these read **"Session average"**; during a live capture or replay they switch to **"Instantaneous"** with a live trend sparkline underneath.
+- **Top Talkers** bar charts, by bytes and by packets.
+- **Top Protocols** by packet share.
 
-**Screenshot 09** — Gauges view populated from a running or replayed capture.
+![Gauges view](../assets/manual-macos/09-gauge.png)
 
 ---
 
 ## 8. Decode window
 
-Decode opens in its **own window** (`⇧⌘D`, or the toolbar/menu Decode button) so you can keep the Circle in view while reading packets. It shows a packet list, protocol tree, and hex/ASCII pane, driven by native decode (Ethernet → IP → TCP/UDP → limited application layers).
+Decode opens in its **own window** (`⇧⌘D`, or the toolbar Decode button) so you can keep the Circle in view while reading packets.
 
-Open it two ways:
+![Decode window: filter chips, packet list, protocol tree, hex dump](../assets/manual-macos/10-decode.png)
 
-- **Unfiltered** — the Decode toolbar button or `⇧⌘D`, showing the whole capture.
-- **Filtered to a pair** — **Open in Decode…** from a context menu, or **Show in Decode** from the connection popup; the window opens scoped to that conversation (and port, if one was picked).
+| Area | Contents |
+|---|---|
+| Header | Capture name, frame count and layer range (e.g. *"660 frames · L2-L7"*), text/hex search field, **Reload** |
+| Filter chips | One chip per protocol seen (DNS, HTTP, SMB, SSH, …) — click to filter, `⌘`-click for multiple |
+| Packet list | `#`, Time, Source, Destination, Flags, Ports, Proto, Len, Message |
+| Protocol tree | Expandable frame detail (e.g. TCP sequence/ack numbers, header length, flags, window, payload length) down through the recognized application layer |
+| Hex dump | Byte-for-byte view of the selected frame, synced to the tree selection |
 
-**Screenshot 10** — Decode window filtered to one conversation, packet list + tree + hex all visible.
-
-Font, size, and per-protocol colors for this window are configured in [Settings](#12-settings).
+Open it filtered to one conversation via **Decode** in the connection popup, or unfiltered via the toolbar/`⇧⌘D` for the whole capture. Font, size, and per-protocol colors for this window are configured in [Settings](#12-settings).
 
 ---
 
 ## 9. Follow TCP Stream
 
-Reassembles one TCP flow's payload bytes, from a context menu or the connection popup.
+An in-window modal (not a separate window) that reassembles one TCP flow's payload bytes.
+
+![Follow TCP Stream modal](../assets/manual-macos/11-follow.png)
+
+The header states segment count and byte totals per side (e.g. *"10 segments · client 5,994 B · server 90 B · native reassembly (no Wireshark required)"*).
 
 | Control | Options |
 |---|---|
 | Direction | Entire conversation · Client → Server · Server → Client |
 | Format | ASCII · Hex · Hex + ASCII |
-| Copy | Clipboard |
+| Actions | **Copy** · **Open in Wireshark…** |
 
-**Screenshot 11** — Follow TCP Stream window open on a cleartext (e.g. HTTP or FTP) flow.
+Client/server bytes are color-coded (a legend in the corner marks which color is which direction) — useful even before reading a single byte, to see how lopsided a conversation was.
 
 ---
 
 ## 10. Live capture
 
-**File → Interfaces…** (`⇧⌘I`) opens a sheet listing local interfaces with live traffic and packets/s columns, a BPF filter field (with a known-hosts helper), and **Promiscuous** / **Hide idle** toggles.
+**Interfaces…** (`⇧⌘I`) opens a sheet listing local interfaces (native, live rates via `dumpcap`) with a traffic sparkline and packets/s per interface.
 
-**Screenshot 12** — Interfaces sheet, at least one interface showing live traffic.
+![Interfaces sheet](../assets/manual-macos/12-interfaces.png)
 
-Once running, the toolbar shows a **live badge** and a compact stats bar (packets, bytes, duration, rate) over the circle.
+Below the interface list: an optional BPF filter field (*"optional — e.g. host 10.0.0.1 and port 443"*; empty captures everything), and **Promiscuous** / **Hide idle** toggles. **Start Capturing** begins the capture; **Cancel** backs out.
 
-**Screenshot 13** — a live capture in progress, live badge and stats bar visible.
+> macOS may ask for your password once per reboot to allow packet capture — not again when you stop.
 
-| Action | Shortcut |
-|---|---|
-| Pause / Resume | `⇧⌘P` |
-| Stop | `⌘.` |
+Once running, the status line reads e.g. **"● CAPTURING · en0 · 292 pkts · 34 pairs"**, Gauges switch to **Instantaneous** readings with live sparklines, and the footer reminds you: *"All traffic — Save to keep · right-click pair/node to filter."*
 
-The capture engine tries `dumpcap`, then libpcap, then prompts for admin `tcpdump` if permission is denied — the first live capture on a fresh machine may trigger a macOS permission prompt.
+![Live capture in progress](../assets/manual-macos/13-live.png)
 
-Right-click actions on the circle (**Restart capture · this conversation** / **· host**) restart the live capture with a BPF filter scoped to just that traffic — handy for narrowing in on one conversation without losing the live view.
+Right-click actions on the circle (**Restart capture · this conversation** / **· host**) restart the live capture with a BPF filter scoped to just that traffic — handy for narrowing in without losing the live view.
 
 ---
 
 ## 11. Replay and Demo Mode
 
-- **Demo Mode** (`⌥⌘D`) loads a bundled sample capture — the fastest way to see the app populated without your own PCAP.
-- **Replay** (`⌥⌘R`) replays an already-open file at its original inter-frame timing, so arcs and gauges animate the way they would live. A progress indicator tracks playback; **Stop** (`⌘.`) ends it and returns to the static full-file view.
+- **Demo Mode** loads a bundled sample capture — the fastest way to see the app populated without your own PCAP. All screenshots in this manual use it.
+- **Replay** (`⌥⌘R`) replays an already-open file at its original inter-frame timing, so arcs and gauges animate the way they would live. **Stop** (`⌘.`) ends it and returns to the static full-file view.
 
 ---
 
 ## 12. Settings
 
-`⌘,` opens Settings, with two tabs:
+Settings has three tabs: **Display**, **Decode**, and **Colors**.
 
-| Tab | Contents |
+### 12.1 Display
+
+![Settings — Display tab](../assets/manual-macos/14-settings.png)
+
+| Setting | Purpose |
 |---|---|
-| **Decode** | Monospace font picker (only fixed-pitch fonts are listed) and size slider, with a live preview |
-| **Colors** | Per-protocol color overrides for the Decode packet list, protocol tree, and hex dump, with **Reset All** |
+| **Show host names** | Prefer shortened DNS / mDNS / LLMNR / NetBIOS names on the Circle, Talkers list, and connection popup. Addresses still drive filters and Decode regardless of this setting. |
+| **How quality is measured — Grade bands** | **Lenient** (more sessions look healthy) · **Balanced** (default) · **Strict** (only clean sessions look Excellent). This changes only the Excellent/Good/Fair/Poor **color bands** — not the underlying 0–100 score. |
 
-**Screenshot 14** — Settings → Decode tab.
-**Screenshot 15** — Settings → Colors tab.
+### 12.2 Decode
+
+| Setting | Purpose |
+|---|---|
+| Font | Monospace font picker (only fixed-pitch fonts installed on the Mac are listed), with a live preview |
+| Size | 9–20 pt slider |
+
+Colors apply to the Decode packet list, protocol tree, and hex dump.
+
+### 12.3 Colors
+
+Per-protocol color overrides for the Decode window, with a **Reset All** to restore defaults.
 
 ---
 
 ## 13. Wireshark integration
 
-The **Wireshark** toolbar button and the popup's **Open in Wireshark…** both hand the current capture off to a locally installed Wireshark, with the equivalent display filter already copied to the clipboard so you can paste it straight into Wireshark's filter bar. This control is disabled if Wireshark isn't installed.
+**Open in Wireshark…** — from the toolbar, the connection popup, or Follow TCP Stream — hands the current capture (or filtered view) off to a locally installed Wireshark, with the equivalent display filter already copied to the clipboard so you can paste it straight into Wireshark's filter bar. Disabled if Wireshark isn't installed.
 
 ---
 
@@ -258,27 +267,28 @@ The **Wireshark** toolbar button and the popup's **Open in Wireshark…** both h
 
 ### A. First look at a capture
 
-1. `⌘O` to open a file (or `⌥⌘D` for Demo Mode).
-2. On Circle, skim arcs; switch **Edge color** to Quality to spot Fair/Poor sessions.
-3. Click an arc for the connection popup, or open **Table** for a sortable list.
+1. `⌘O` to open a file (or Demo Mode).
+2. On Circle, skim arcs; switch edge color to Quality to spot Fair/Poor sessions.
+3. Click an arc for the connection popup, or open **Table** for a sortable list with quality/issue columns.
 
 ### B. Diagnose a bad TCP session
 
-1. Edge color → **Quality**; look for orange/red arcs.
-2. Click the arc → connection popup → check direction and per-port detail.
-3. **Follow TCP Stream** for payload, or **Show in Decode** for frame-by-frame detail.
-4. **Reset** clears the selection and filter once you're done, ready for the next pair.
+1. Edge color → Quality; look for orange/red arcs, or sort Table by the Quality column.
+2. Click the arc → connection popup → read TCP session health (retransmits, RST, zero-window, RTT) and the quality charts.
+3. **Follow TCP Stream** for payload, or **Decode** for frame-by-frame detail — both reachable directly from the popup.
+4. **Save Session…** if you want to keep just this conversation as its own file.
+5. **Reset** clears the selection and filter once you're done, ready for the next pair.
 
 ### C. Live triage on the wire
 
 1. `⇧⌘I` → pick an interface, optionally set a BPF filter → Start Capturing.
-2. Watch Circle/Gauges update live; right-click a conversation → **Restart capture · this conversation** to narrow the live capture to just that traffic.
+2. Watch Circle/Gauges update live (Instantaneous readings, live sparklines); right-click a conversation → **Restart capture · this conversation** to narrow the live capture to just that traffic.
 3. `⇧⌘P` to pause and inspect, `⌘.` to stop and analyze the full trace.
 
 ### D. Handoff to Wireshark
 
 1. Select a conversation (or none, for the whole capture).
-2. **Wireshark** toolbar button, or the popup's **Open in Wireshark…** — the display filter is copied automatically.
+2. **Open in Wireshark…** from the toolbar, the popup, or Follow TCP Stream — the display filter is copied automatically.
 
 ---
 
