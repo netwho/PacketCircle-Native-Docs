@@ -30,11 +30,12 @@ We do **not** collect ANY data — see [Privacy](./docs/PRIVACY.md).
 > iOS **1.1.0** continues the conversation-first triage story (App Store availability depends on review timing).
 
 ### macOS
-- [Quickstart (teaser)](./docs/macos/QUICKSTART.md)
-- [Detailed usage (teaser)](./docs/macos/DETAILED-USAGE.md)
-- [Limitations (teaser)](./docs/macos/LIMITATIONS.md)
+- **[User Manual](./docs/macos/USER-MANUAL.md)** — background, functions, options, workflows, and screenshots
+- [Quickstart](./docs/macos/QUICKSTART.md)
+- [Detailed usage](./docs/macos/DETAILED-USAGE.md) — analyst workflows
+- [Limitations](./docs/macos/LIMITATIONS.md)
 
-> **Coming soon:** macOS code is not yet available publicly — keep checking back.
+> macOS **1.1.0 Tech Preview** — desktop circle/table/gauges analysis, live capture, and Wireshark handoff.
 
 ### Legal
 - [License](./docs/LICENSE.md)

@@ -19,11 +19,12 @@ Public documentation for the macOS + iOS PacketCircle Native apps.
 
 ## macOS
 
-- [Quickstart (teaser)](./macos/QUICKSTART.md)
-- [Detailed usage (teaser)](./macos/DETAILED-USAGE.md)
-- [Limitations (teaser)](./macos/LIMITATIONS.md)
+- **[User Manual](./macos/USER-MANUAL.md)** — background, functions, options, workflows, and screenshots
+- [Quickstart](./macos/QUICKSTART.md)
+- [Detailed usage](./macos/DETAILED-USAGE.md) — analyst workflows
+- [Limitations](./macos/LIMITATIONS.md)
 
-> Coming soon: macOS code is not yet available publicly.
+> macOS **1.1.0 Tech Preview** — desktop circle/table/gauges analysis, live capture, and Wireshark handoff.
 
 ## Legal
 
