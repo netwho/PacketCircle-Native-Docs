@@ -75,6 +75,8 @@ Tapping the status bar to **Replay** re-walks timing from the loaded file. Cost 
 |---|---|
 | Classic **PCAP** | Yes |
 | **PCAPNG** | Yes |
+| gzip (`.pcap.gz`, `.pcapng.gz`) | Yes |
+| Sniffer Pro `.cap` / `.caz` | Yes (Ethernet NetXRay; unusual WAN/ATM files may need a Wireshark conversion) |
 | Other wiretap-only formats | Not on iOS App Store builds |
 
 - **No live capture** on device (offline open + Demo only)  
