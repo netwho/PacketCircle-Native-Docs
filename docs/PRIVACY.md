@@ -5,7 +5,7 @@
 </p>
 
 **Effective date:** 2 August 2026  
-**Applies to:** PacketCircle for **iOS** and **macOS** (Native apps)  
+**Applies to:** PacketCircle for **iOS**, **macOS**, **Linux** and **Windows** (Native apps)  
 **Publisher:** Walter Hofstetter / **netwho**
 
 This policy is written for users and for App Store review. PacketCircle has **nothing to hide**: there is **no backend that receives your captures**, and there is **no analytics, advertising, or tracking SDK** in the apps.
@@ -39,7 +39,7 @@ Depending on how you use PacketCircle, the App may read and process **locally**:
 | Data | Where | Purpose |
 |------|--------|---------|
 | **Capture files** you open (PCAP / PCAPNG), including addresses, ports, protocols, and payload bytes in those files | On device | Circle, gauges, talkers, session health, decode, Follow TCP Stream, export you initiate |
-| **Live capture** from a network interface you select | **macOS only**, on device | Optional live analysis on Mac |
+| **Live capture** from a network interface you select | **macOS, Linux and Windows only**, on device | Optional live analysis on the desktop |
 | **App preferences** (Options, panel layout, tour “seen” flags, etc.) | On device (`UserDefaults` / app container) | Remember your settings |
 
 Network captures can contain sensitive or personal data. **You** choose which files to open, store, share, or delete, and you remain responsible for complying with applicable law.
@@ -106,7 +106,7 @@ Privacy questions: [privacy@netwho.com](mailto:walter.hofstetter@netwho.com)
 Walter Hofstetter / netwho  
 
 **Canonical policy URL (for App Store Connect):**  
-https://github.com/netwho/PacketCircle-iOS_macOS-docs/blob/main/docs/PRIVACY.md
+https://github.com/netwho/PacketCircle-Native-Docs/blob/main/docs/PRIVACY.md
 
 ---
 

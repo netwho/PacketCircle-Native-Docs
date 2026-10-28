@@ -4,10 +4,10 @@
   <img src="./assets/logo.png" alt="PacketCircle" width="140" />
 </p>
 
-**PacketCircle Native** (the iOS and macOS apps, and **PacketCircleCore** as shipped with those apps) is provided by Walter Hofstetter / **netwho**.
+**PacketCircle Native** (the macOS, iOS / iPadOS, Linux and Windows apps, and the shared analysis core as shipped with them) is provided by Walter Hofstetter / **netwho**.
 
 **Canonical license URL:**  
-https://github.com/netwho/PacketCircle-iOS_macOS-docs/blob/main/docs/LICENSE.md
+https://github.com/netwho/PacketCircle-Native-Docs/blob/main/docs/LICENSE.md
 
 ---
 
