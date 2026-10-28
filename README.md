@@ -9,7 +9,7 @@ Documentation for **PacketCircle Native** — the circle-first network conversat
 **PacketCircle is not a mobile Wireshark.** It contains **no open-source Wireshark / libwireshark dissection**. Decodes are native and limited: reasonable IP and TCP detail and some application-layer recognition, not comparable to Wireshark's dissectors. Use PacketCircle to find the conversation that matters, then go deep in Wireshark.
 
 <p align="center">
-  <img src="./docs/assets/hero.jpg" alt="PacketCircle — conversation circle with connection details" width="720" />
+  <img src="./docs/assets/hero.png" alt="PacketCircle — conversation circle with connection details" width="720" />
 </p>
 
 **Free to use** · **not GPL / not open source** — see [License](./docs/LICENSE.md).  
