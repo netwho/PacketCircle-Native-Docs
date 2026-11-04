@@ -2,6 +2,60 @@
 
 Condensed from the project changelog. Platform pages state which version they describe.
 
+## 1.3.8 — 2026-11-03 (Tech Preview)
+
+**Networks replace Groups, live capture and the rest of the Mac front end run on Rust, and Expert findings lead to the packets they are about.** Marketing version **1.3.8** (macOS build **154**, Linux build **152**). iPhone and iPad 1.3.8 follows with App Store review; the signed Windows installer follows as a signed 1.3.8 build.
+
+### Added
+- **Networks: a Circle layout that groups hosts by network** (Mac, Linux, Windows, iPhone and iPad). The layout button cycles Hosts → Services → Networks. Private hosts sit on the left half, internet hosts on the right; each network is a coloured arc (colour = worst conversation quality) with its name, class and host count. Click an arc to select its conversations, double-click to fold its hosts, right-click for the Wireshark / BPF filter, **Hide** and **Name this network…**. Internet hosts group by the DNS domain learnt from the capture.
+- **Known networks** — Settings → Networks (iPhone: Options → Circle → Known networks): give a CIDR a name (for example `172.28.184.0/23` — `netwho.lan`); the most specific one wins.
+- **A `?` on the Circle explains what you see** — hexagons, lines, colours, the layouts and how to read the Networks arcs. The Infrastructure map has its own `?`.
+- **`expert` in the Circle search lists the findings first** — typing just `expert` shows the four worst findings of the capture; choosing one narrows the Circle to its conversations.
+- **Slow server or slow network, told apart** — a TCP conversation's wait is split into the handshake round trip (network) and the server think time. When either part reaches 100 ms, the Expert alert names the dominant one (*Slow server* / *Slow network*) with both numbers, the median and the worst request.
+- **The connection pane starts on the socket an Expert alert is about**, and **Decode shows only the packets that carry the message** (an ICMP error is listed with the host that sent it and with the flow it quotes).
+- **iPhone and iPad:** the legend folds to one row when it needs more; the Circle keeps its room while you search.
+- **Synthetic captures** for the infrastructure decoders and the Expert scanners that real captures rarely reach (test data).
+
+### Changed
+- **Live capture on the Mac is the Rust capture engine** (the same as Linux and Windows); the Mac keeps only the administrator prompt that opens `/dev/bpf*`.
+- **Demo Mode, Replay, PCAP over IP, the interface list, Decode, the PDF report, Compare Conversations and the Infrastructure Map run on the Rust engine** on the Mac and iOS.
+- **The Infrastructure Map is no longer a layout of the Circle** on the Mac, Linux and Windows: it has its own toolbar button (on iPhone it stays a layout). Clicking a layer-2 device switches to MAC address mode with a **Back to IP mode** button.
+- **Help is one catalog** for all apps; it covers Networks, Known networks, the Circle `?`, the Table menu, Slow server / Slow network and packet-level Decode.
+- **Conversations an Expert finding was seen in look clickable** (Mac, Linux, Windows).
+- **The main window opens at 1800 × 950** (capped to the screen) so the controls sit on one line.
+
+### Fixed
+- The iOS app builds in Xcode again.
+- Right-click in the Mac Table view (and a Linux / Windows Conversations row) offers the pairs-list menu.
+- A NetBIOS workgroup or domain name is never a host's name.
+- Services ring: only the clicked or hovered line is bold.
+- A host search acts on the conversations it highlights (**Select Matching (n)**).
+- The Expert search list is drawn above the Expert tiles.
+- An ICMP error shows in the Decode window of the conversation it is about.
+- The Circle draws during a live capture and in Demo Mode again.
+- Quitting during a capture no longer leaves the app or its `dumpcap` helper running.
+- Mac session-quality grades match Linux / Windows (reset and unexpected-FIN counts are part of the score).
+
+### Removed
+- The Groups display of 1.3.3 / 1.3.4 (replaced by Networks).
+
+---
+
+## 1.3.7 – 1.3.4 — 2026-10-29 (Tech Preview)
+
+- **1.3.7** — Groups and conversation scopes run in Rust on the Mac as well.
+- **1.3.6** — **The Rust engine is the default on the Mac**: about 7–9× faster on real captures (a 612 MB capture opens in seconds) and more Expert findings (unanswered SYN, incomplete TLS handshake, DNS without response, DHCP NAK / no offer, MAC moves and duplicates, Oracle / MySQL errors).
+- **1.3.5** — **Select All Shown** (Mac ⇧⌘A; Linux / Windows Ctrl+A) and **Filter and Reload Selected**: read the capture again keeping only the selected conversations, with full TCP quality and Expert findings.
+- **1.3.4** — Groups as boxes (Group by Service, stacks, arrange). Superseded by Networks in 1.3.8.
+
+---
+
+## 1.3.3 — 2026-10-28 (Tech Preview)
+
+**Groups** — the Circle can fold its hosts into a few nodes (by scope or by subnet) and filter the lists to a group. Superseded by Networks in 1.3.8.
+
+---
+
 ## 1.3.2 — 2026-10-16 (Tech Preview)
 
 Appearance, a connection card that follows the window, and the same analysis footer on Linux and Windows. Marketing version **1.3.2**.

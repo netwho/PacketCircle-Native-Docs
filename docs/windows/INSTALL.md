@@ -30,7 +30,7 @@ PacketCircle runs on Windows 10 and 11 (x64) as a native desktop app (egui, Rust
 
 Double-click the `.msi`. It installs for every user (Program Files and the Start menu), shows the PacketCircle mark and a short note — free, no telemetry, no feature or size limits — and continues.
 
-**SmartScreen.** An unsigned MSI downloaded from the internet shows *"Windows protected your PC… publisher could not be verified."* Choose **More info → Run anyway**. Windows then asks for administrator approval because the installer writes to Program Files.
+**Signing.** The installer is signed by **WLAN GEEKS LLC** (thank you, Kevin, for signing the app and the installer). A new or rarely downloaded file can still make SmartScreen ask for confirmation (*"Windows protected your PC…"*): choose **More info → Run anyway**, only for an installer downloaded from the official site. Windows then asks for administrator approval because the installer writes to Program Files.
 
 If Npcap is not installed, the installer tells you and carries on; PacketCircle still opens and analyzes files.
 
@@ -109,7 +109,7 @@ You can also drag a capture onto the window. Continue with the [Quickstart](./QU
 
 | Symptom | Fix |
 |---|---|
-| SmartScreen blocks the installer | **More info → Run anyway**, or use a signed build |
+| SmartScreen asks for confirmation | **More info → Run anyway** (official download only) |
 | *Capture…* shows no interfaces | Install Npcap as administrator (section 4) and restart PacketCircle |
 | Blank or black window / graphics error | Update the GPU driver; try `set WGPU_BACKEND=gl` before launching |
 | Build fails at link time | Check `C:\npcap-sdk\Lib\x64\wpcap.lib` exists; run `check-deps.ps1` |

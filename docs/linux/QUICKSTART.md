@@ -18,7 +18,7 @@ Hosts sit on a ring; each chord is a conversation. Colors are protocols. Thicker
 
 - **Hover** a chord or a row in the pairs list to highlight it.
 - **Click** a chord to open its **Connection details**.
-- Switch the layout between **Hosts**, **Services** and **Map**.
+- Switch the layout between **Hosts**, **Services** and **Networks** (hosts grouped by network); the **Map** has its own button.
 
 ![Services](../assets/linux/L-05-services.jpg)
 

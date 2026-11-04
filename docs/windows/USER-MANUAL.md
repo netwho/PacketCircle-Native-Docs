@@ -48,7 +48,10 @@ While a file is being read the bottom bar shows the frame counter and a **Stop**
 
 - **Hosts** — hosts on a ring, one chord per conversation. One-way conversations draw as a dotted arrow; multi-protocol conversations draw as colored dashes.
 - **Services** — hosts on the left, applications on the right, edges colored by protocol.
-- **Map** — infrastructure topology built from STP, CDP, LLDP and routing traffic. Click a node to open its details.
+- **Networks** — hosts grouped by network on coloured arcs: **private networks on the left, the internet on the right**. Each arc shows its name, class and host count; its colour is the worst conversation quality in the network (a thin red or orange line outside it means a Poor or Fair conversation). Click an arc to select its conversations, double-click to fold its hosts, right-click for the Wireshark / BPF filter, **Hide** and **Name this network…**. Name your own networks in **Settings → Networks** (a CIDR and a name, for example `172.28.184.0/23` — `netwho.lan`). A **?** beside the layout button explains every object.
+- **Map** — infrastructure topology built from STP, CDP, LLDP and routing traffic. It has its own toolbar button. Click a node to open its details.
+
+![Networks](../assets/linux/L-26-networks.jpg)
 
 ![Map](../assets/linux/L-06-map.jpg)
 

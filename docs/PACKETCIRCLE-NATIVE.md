@@ -54,10 +54,10 @@ PacketCircle Native takes that idea out of Wireshark and onto every desktop and 
 
 | Platform | Version in this documentation | UI | Engine | Live capture | Guide |
 |---|---|---|---|---|---|
-| **macOS** 14+ | 1.3.2 (Tech Preview) | SwiftUI | Rust core (Swift engine in older builds) | Yes (admin prompt for BPF) | [macOS](./macos/INSTALL.md) |
-| **iOS / iPadOS** 17+ | 1.3.2 (App Store releases may lag) | SwiftUI | Rust core | No — opens files on the device | [iOS](./ios/INSTALL.md) |
-| **Linux** (Ubuntu 24.04 reference; other glibc distros) | 1.3.2 (Tech Preview) | egui | Rust core | Yes (libpcap + `setcap`) | [Linux](./linux/INSTALL.md) |
-| **Windows** 10 / 11 (x64) | 1.3.2 (Tech Preview) | egui | Rust core | Yes (optional Npcap) | [Windows](./windows/INSTALL.md) |
+| **macOS** 14+ | 1.3.8 (Tech Preview) | SwiftUI | Rust core (Swift engine in older builds) | Yes (admin prompt for BPF) | [macOS](./macos/INSTALL.md) |
+| **iOS / iPadOS** 17+ | 1.3.8 (App Store releases may lag) | SwiftUI | Rust core | No — opens files on the device | [iOS](./ios/INSTALL.md) |
+| **Linux** (Ubuntu 24.04 reference; other glibc distros) | 1.3.8 (Tech Preview) | egui | Rust core | Yes (libpcap + `setcap`) | [Linux](./linux/INSTALL.md) |
+| **Windows** 10 / 11 (x64) | 1.3.2 signed installer; 1.3.8 follows (Tech Preview) | egui | Rust core | Yes (optional Npcap) | [Windows](./windows/INSTALL.md) |
 
 Feature parity is high but not identical. Mac, Linux and Windows are the full desktop experience; iPhone and iPad are an offline analyzer built for quick looks on the go. Each platform's *Limitations* page lists the differences.
 
@@ -137,7 +137,7 @@ Opening a file never depends on tier B.
 
 **Socket.** A specific port pair inside a conversation (for example `10.0.0.5 ↔ 10.0.0.9 TCP 443`). Session details, Expert findings and Follow TCP Stream can be scoped to one socket.
 
-**Circle layouts.** *Hosts* (hosts on a ring), *Services* (hosts on the left, applications on the right, edges colored by protocol) and *Map* (infrastructure topology).
+**Circle layouts.** *Hosts* (hosts on a ring), *Services* (hosts on the left, applications on the right, edges colored by protocol) and *Networks* (hosts grouped by network on coloured arcs: private networks left, the internet right). The *Map* (infrastructure topology) has its own toolbar button on the Mac, Linux and Windows.
 
 **Quality score (0–100).** A native estimate of TCP session health from retransmissions, resets, zero-window events, handshake and RTT behavior, graded for quick scanning. It is an estimate, not a Wireshark `tcp.analysis` replacement.
 
@@ -150,7 +150,7 @@ Opening a file never depends on tier B.
 | Feature | macOS | iOS | Linux | Windows |
 |---|:--:|:--:|:--:|:--:|
 | Open PCAP / PCAPNG / gzip / Sniffer `.cap`/`.caz` | ✓ | ✓ | ✓ | ✓ |
-| Circle, Services, Map layouts | ✓ | ✓ | ✓ | ✓ |
+| Circle, Services, Networks layouts, Map | ✓ | ✓ | ✓ | ✓ |
 | Conversation details and TCP session quality | ✓ | ✓ | ✓ | ✓ |
 | Gauges and talkers | ✓ | ✓ | ✓ | ✓ |
 | Expert alerts | ✓ | ✓ | ✓ | ✓ |

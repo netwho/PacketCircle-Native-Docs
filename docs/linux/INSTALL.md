@@ -35,17 +35,17 @@ Every file ships with a `.asc` GPG signature and a `SHA256SUMS-<version>-<arch>`
 ### 3.1 Debian / Ubuntu package
 
 ```bash
-sudo apt install ./packetcircle_1.3.2_amd64.deb
+sudo apt install ./packetcircle_1.3.8_amd64.deb
 ```
 
 ### 3.2 The `.run` installer
 
 ```bash
-sh packetcircle-1.3.2-linux-x86_64.run --check      # only check this machine (CPU, glibc, libraries, signature)
-sh packetcircle-1.3.2-linux-x86_64.run              # interactive: this user or everyone?
-sh packetcircle-1.3.2-linux-x86_64.run --user       # ~/.local, no root
-sh packetcircle-1.3.2-linux-x86_64.run --system --install-deps   # /usr/local; installs missing packages
-sh packetcircle-1.3.2-linux-x86_64.run --capture    # also allow live capture
+sh packetcircle-1.3.8-linux-x86_64.run --check      # only check this machine (CPU, glibc, libraries, signature)
+sh packetcircle-1.3.8-linux-x86_64.run              # interactive: this user or everyone?
+sh packetcircle-1.3.8-linux-x86_64.run --user       # ~/.local, no root
+sh packetcircle-1.3.8-linux-x86_64.run --system --install-deps   # /usr/local; installs missing packages
+sh packetcircle-1.3.8-linux-x86_64.run --capture    # also allow live capture
 ```
 
 The installer verifies the architecture, glibc version, window/graphics/libpcap libraries, the SHA-256 sums and the GPG signature against the pinned release key. It installs the program, a menu entry, an icon, `packetcircle-capture`, and an uninstaller, and lists everything in `<share>/packetcircle/install-manifest`. Package names are suggested for Debian/Ubuntu/Mint, Fedora/RHEL, Arch and openSUSE.
@@ -60,8 +60,8 @@ Release signing key fingerprint:
 
 ```bash
 gpg --import my-public-key.asc
-gpg --verify packetcircle_1.3.2_amd64.deb.asc packetcircle_1.3.2_amd64.deb
-sha256sum -c SHA256SUMS-1.3.2-amd64
+gpg --verify packetcircle_1.3.8_amd64.deb.asc packetcircle_1.3.8_amd64.deb
+sha256sum -c SHA256SUMS-1.3.8-amd64
 ```
 
 ### 3.4 Uninstall
@@ -75,7 +75,7 @@ sudo apt remove packetcircle      # if installed from the .deb
 ## 4. Build from source
 
 ```bash
-unzip packetcircle-ubuntu-1.3.2.zip && cd packetcircle-ubuntu-1.3.2
+unzip packetcircle-ubuntu-1.3.8.zip && cd packetcircle-ubuntu-1.3.8
 ./scripts/ubuntu/check-deps.sh          # what is missing? (changes nothing)
 ./scripts/ubuntu/build.sh --yes         # install missing packages + Rust, then build
 ./dist/packetcircle capture.pcapng      # run it from a desktop session

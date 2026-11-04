@@ -110,6 +110,10 @@ Restart capture · this conversation · Restart capture · *src* · Restart capt
 
 ---
 
+### 4.2 Networks layout (1.3.8)
+
+The layout button cycles **Hosts → Services → Networks**. In **Networks** the hosts sit on one coloured arc per network: **private networks on the left, the internet on the right**. Each arc shows its name, class and host count; its colour is the worst conversation quality in the network, and a thin red or orange line outside it means a Poor or Fair conversation inside it. Click an arc to select its conversations, double-click to fold its hosts into one seat, right-click for the Wireshark / BPF filter, **Hide** and **Name this network…**. Name your own networks in **Settings → Networks** (a CIDR and a name). A **?** beside the layout button explains every object. The Infrastructure Map has its own toolbar button.
+
 ## 5. Connection details popup
 
 Selecting a conversation (click an arc, a sidebar row, or a node) opens a floating popup with a real triage panel for that pair — not just an address summary.

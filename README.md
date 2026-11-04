@@ -30,7 +30,7 @@ We do **not** collect ANY data — see [Privacy](./docs/PRIVACY.md).
 
 ## Release information
 
-- [Release history](./docs/RELEASES.md) — all versions, current **1.3.2**
+- [Release history](./docs/RELEASES.md) — all versions, current **1.3.8**
 - iOS: [1.2.4 release notes](./docs/ios/RELEASE-NOTES-1.2.4.md) · [1.1.0](./docs/ios/RELEASE-NOTES-1.1.0.md) · [1.0.0 known issues (archive)](./docs/ios/KNOWN-ISSUES-1.0.0.md)
 
 ## Legal

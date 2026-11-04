@@ -30,7 +30,7 @@ For huge captures choose **Light** analysis depth.
 
 - **Live capture** needs Npcap, installed separately as administrator. Without it files open and analyze normally.
 - **Windows 10/11 x64 only.** No 32-bit or Windows on ARM native build is provided.
-- **Unsigned builds** trigger SmartScreen (More info → Run anyway).
+- **SmartScreen** may still ask for confirmation for a new installer even when it is signed (More info → Run anyway). The installer is signed by WLAN GEEKS LLC, not by PacketCircle's own certificate.
 - **Wireshark integration** requires Wireshark to be installed separately.
 - **GPU.** The UI renders with wgpu; if the default backend fails, try `WGPU_BACKEND=gl`.
 
