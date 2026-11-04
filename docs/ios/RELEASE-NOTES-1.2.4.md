@@ -57,10 +57,4 @@
 
 ---
 
-## App Store submission
-
-Paste-ready **What's New**, review notes, screenshot list, and checklist: **[APP-STORE-1.2.4.md](./APP-STORE-1.2.4.md)**.
-
----
-
 *PacketCircle — conversation-first triage on iPhone.*

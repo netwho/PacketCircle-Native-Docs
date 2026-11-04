@@ -25,7 +25,6 @@ Condensed from the project changelog. Platform pages state which version they de
 - **The main window opens at 1800 × 950** (capped to the screen) so the controls sit on one line.
 
 ### Fixed
-- The iOS app builds in Xcode again.
 - Right-click in the Mac Table view (and a Linux / Windows Conversations row) offers the pairs-list menu.
 - A NetBIOS workgroup or domain name is never a host's name.
 - Services ring: only the clicked or hovered line is bold.
@@ -206,7 +205,7 @@ macOS triage and Expert polish on top of the 1.2.0 Pro tools shell. Marketing ve
 - **iOS Sanitize Capture** — Options → Capture tools, and Capture details (tap file name above the tab bar); native scrub → save PCAPNG via Files.
 - **iOS Generate Report** — same places as Sanitize; PDF from native analysis → save via Files. Cover, type, paper, and host-name options match Mac.
 - Expert Alerts row → opens the conversation and **pre-selects the socket** that raised the alert when several ports exist.
-- **`--window-size` / `PC_WINDOW_SIZE`** (e.g. `1920x1080`) for screenshot-friendly main **content** size (`./build.sh --run --window-size …`).
+- **`--window-size` / `PC_WINDOW_SIZE`** (e.g. `1920x1080`) for screenshot-friendly main **content** size.
 - Web what’s-new draft: [`docs/WEB-1.2.1-TECH-PREVIEW.md`](docs/WEB-1.2.1-TECH-PREVIEW.md).
 
 ### Fixed

@@ -50,19 +50,7 @@ Opening files needs no permission. To capture from an interface PacketCircle nee
 
 Without access the capture window says so (*Capturing needs access to /dev/bpf\* (Wireshark's ChmodBPF installs it) or sudo*). *PCAP over IP* needs no special permission.
 
-## 5. Build from source (developers)
-
-Source is proprietary and not distributed with the documentation; this section is for authorized builders of the private repository.
-
-```bash
-./build.sh --run --rust                       # Rust-core build, release, arm64, then launch
-./build.sh --test                             # Swift unit tests
-scripts/package-macos.sh --rust --notarize --notary-profile PacketCircleNotary   # signed DMG
-```
-
-Needs Xcode 15+ command-line tools, a Rust toolchain, and for sharing builds a Developer ID Application certificate plus notarization credentials. See the repository's `docs/BUILDS.md`.
-
-## 6. Troubleshooting
+## 5. Troubleshooting
 
 | Symptom | Fix |
 |---|---|
