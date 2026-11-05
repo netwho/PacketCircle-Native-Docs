@@ -27,8 +27,7 @@ It contains **no open-source Wireshark / libwireshark dissection**. There is no 
 Application-layer decode is **best-effort and limited**. You get **reasonable IP and TCP** trees, hex, and **some** app-level recognition (for example HTTP request lines, DNS names, SSH banners, FTP/Telnet ASCII, SMB headers, TLS SNI where detectable). That is often enough to orient a lab or field capture — it is **not** comparable to Wireshark’s depth or accuracy.
 
 For capacity and decode limits, see [Limitations](LIMITATIONS.md).  
-For **1.1.0** release notes, see [Release notes 1.1.0](RELEASE-NOTES-1.1.0.md).  
-For archived **1.0.0** caveats, see [Known issues 1.0.0](KNOWN-ISSUES-1.0.0.md).
+For what changed in each version (current **1.3.8**), see the [Release history](../RELEASES.md).
 
 ---
 

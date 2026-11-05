@@ -55,7 +55,7 @@ PacketCircle Native takes that idea out of Wireshark and onto every desktop and 
 | Platform | Version in this documentation | UI | Engine | Live capture | Guide |
 |---|---|---|---|---|---|
 | **macOS** 14+ | 1.3.8 (Tech Preview) | SwiftUI | Rust core (Swift engine in older builds) | Yes (admin prompt for BPF) | [macOS](./macos/INSTALL.md) |
-| **iOS / iPadOS** 17+ | 1.3.8 (App Store releases may lag) | SwiftUI | Rust core | No — opens files on the device | [iOS](./ios/INSTALL.md) |
+| **iOS / iPadOS** 17+ | 1.3.8 (App Store) | SwiftUI | Rust core | No — opens files on the device | [iOS](./ios/INSTALL.md) |
 | **Linux** (Ubuntu 24.04 reference; other glibc distros) | 1.3.8 (Tech Preview) | egui | Rust core | Yes (libpcap + `setcap`) | [Linux](./linux/INSTALL.md) |
 | **Windows** 10 / 11 (x64) | 1.3.2 signed installer; 1.3.8 follows (Tech Preview) | egui | Rust core | Yes (optional Npcap) | [Windows](./windows/INSTALL.md) |
 

@@ -31,7 +31,7 @@ We do **not** collect ANY data — see [Privacy](./docs/PRIVACY.md).
 ## Release information
 
 - [Release history](./docs/RELEASES.md) — all versions, current **1.3.8**
-- iOS: [1.2.4 release notes](./docs/ios/RELEASE-NOTES-1.2.4.md) · [1.1.0](./docs/ios/RELEASE-NOTES-1.1.0.md) · [1.0.0 known issues (archive)](./docs/ios/KNOWN-ISSUES-1.0.0.md)
+- iOS / iPadOS: **1.3.8** is on the [App Store](https://apps.apple.com/my/app/packetcircle/id6795214325) (since 5 November 2026); what changed is in the [release history](./docs/RELEASES.md#138--2026-11-03-tech-preview)
 
 ## Legal
 

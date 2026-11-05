@@ -4,7 +4,7 @@
 <img src="../assets/logo.png" alt="PacketCircle" width="180" />
 </p>
 
-*Tech Preview (1.1.0). Screenshots below are from the current build against the built-in Demo Mode capture (`PacketCircleDemo.pcap`), in **dark mode**.*
+*Tech Preview (1.3.8). Screenshots below are from the current build against the built-in Demo Mode capture (`PacketCircleDemo.pcap`), in **dark mode**.*
 
 ---
 

@@ -19,7 +19,7 @@ PacketCircle for iOS is a native SwiftUI offline analyzer with the shared Rust c
 1. Open the **App Store** and search for **PacketCircle** (publisher: Walter Hofstetter / netwho), or use the link from the project page.
 2. Tap **Get**. The app is free, with no in-app purchases.
 
-Pre-release builds may be available via **TestFlight** when announced.
+Install PacketCircle from the [App Store](https://apps.apple.com/my/app/packetcircle/id6795214325) (current version **1.3.8**). Pre-release builds may be available via **TestFlight** when announced.
 
 ## 3. Get a capture onto the device
 

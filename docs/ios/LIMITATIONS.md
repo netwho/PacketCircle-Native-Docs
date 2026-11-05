@@ -4,7 +4,7 @@
   <img src="../assets/logo.png" alt="PacketCircle" width="180" />
 </p>
 
-> **Disclaimer:** the iOS release is currently under review by the Apple App Store and should be available soon.
+> PacketCircle 1.3.8 for iPhone and iPad is available on the [App Store](https://apps.apple.com/my/app/packetcircle/id6795214325).
 
 PacketCircle iOS favors responsiveness on phone. There is **no hard-coded maximum PCAP file size**, but memory, CPU, and a few feature caps set real expectations. This page is meant to set those expectations clearly.
 

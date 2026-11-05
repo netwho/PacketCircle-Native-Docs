@@ -4,7 +4,7 @@ Condensed from the project changelog. Platform pages state which version they de
 
 ## 1.3.8 — 2026-11-03 (Tech Preview)
 
-**Networks replace Groups, live capture and the rest of the Mac front end run on Rust, and Expert findings lead to the packets they are about.** Marketing version **1.3.8** (macOS build **154**, Linux build **152**). iPhone and iPad 1.3.8 follows with App Store review; the signed Windows installer follows as a signed 1.3.8 build.
+**Networks replace Groups, live capture and the rest of the Mac front end run on Rust, and Expert findings lead to the packets they are about.** Marketing version **1.3.8** (macOS build **154**, Linux build **152**). iPhone and iPad 1.3.8 (build 23) is on the [App Store](https://apps.apple.com/my/app/packetcircle/id6795214325) since 2026-11-05; the signed Windows installer follows as a signed 1.3.8 build.
 
 ### Added
 - **Networks: a Circle layout that groups hosts by network** (Mac, Linux, Windows, iPhone and iPad). The layout button cycles Hosts → Services → Networks. Private hosts sit on the left half, internet hosts on the right; each network is a coloured arc (colour = worst conversation quality) with its name, class and host count. Click an arc to select its conversations, double-click to fold its hosts, right-click for the Wireshark / BPF filter, **Hide** and **Name this network…**. Internet hosts group by the DNS domain learnt from the capture.
