@@ -4,7 +4,7 @@ Condensed from the project changelog. Platform pages state which version they de
 
 ## 1.3.9 — 2026-11-13 (Tech Preview)
 
-**Compare reads the application layer, the Circle animates, and the Linux / Windows app looks like the website and can tell you about updates.** Marketing version **1.3.9** (build **182**) for macOS, Linux and Windows. iPhone and iPad stay on 1.3.8 in the App Store for now.
+**Compare reads the application layer, the Circle animates, and the Linux / Windows app looks like the website and can tell you about updates.** Marketing version **1.3.9** (build **182** for Linux and Windows, build **183** for macOS) for macOS, Linux and Windows. Build 183 adds the manual *Check for Updates* button to the Mac app, so all three desktop apps match. iPhone and iPad stay on 1.3.8 in the App Store for now.
 
 ### Added
 - **Compare Conversations points at application differences, not only at TCP:** requests (method and path), `Host`, response codes, error messages and per-protocol counts come first. Passwords, `Authorization` headers and cookie values are masked in the comparison and in its PDF.
