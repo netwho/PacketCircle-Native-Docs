@@ -4,7 +4,7 @@
   <img src="./assets/logo.png" alt="PacketCircle" width="140" />
 </p>
 
-**Effective date:** 2 August 2026  
+**Effective date:** 13 November 2026  
 **Applies to:** PacketCircle for **iOS**, **macOS**, **Linux** and **Windows** (Native apps)  
 **Publisher:** Walter Hofstetter / **netwho**
 
@@ -74,6 +74,8 @@ We do **not** use your captures to train models, build profiles, or target ads.
 - We do **not** sell your data.  
 - The App does **not** upload your capture files to our servers.  
 - If **you** use system features (AirDrop, Files, Mail, Messages, opening a file in another app on Mac, iCloud Drive, etc.), those actions are initiated by you and governed by Apple’s / that product’s terms and privacy policy.
+
+**Update check (Linux and Windows only).** The Linux and Windows apps have a *Check for updates* button in the About window. Only when you press it, the app requests one small file (`latest.json`) from www.netwho.ch over HTTPS to learn the newest version number. The request contains no capture data and no identifiers beyond the app name and version; the web server may keep its usual access log. Nothing is checked automatically, and nothing is downloaded or installed. The iOS and macOS apps have no such button.
 
 Apple may collect App Store, TestFlight, or diagnostic information according to **your** device settings and [Apple’s Privacy Policy](https://www.apple.com/legal/privacy/). That collection is by Apple, not by PacketCircle’s analysis engine.
 
