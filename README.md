@@ -30,7 +30,7 @@ We do **not** collect ANY data — see [Privacy](./docs/PRIVACY.md).
 
 ## Release information
 
-- [Release history](./docs/RELEASES.md) — all versions, current **1.3.8**
+- [Release history](./docs/RELEASES.md) — all versions, current **1.3.9** (desktop; iPhone and iPad **1.3.8** is the latest in the App Store)
 - iOS / iPadOS: **1.3.8** is on the [App Store](https://apps.apple.com/my/app/packetcircle/id6795214325) (since 5 November 2026); what changed is in the [release history](./docs/RELEASES.md#138--2026-11-03-tech-preview)
 
 ## Legal

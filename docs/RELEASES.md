@@ -2,6 +2,24 @@
 
 Condensed from the project changelog. Platform pages state which version they describe.
 
+## 1.3.9 — 2026-11-13 (Tech Preview)
+
+**Compare reads the application layer, the Circle animates, and the Linux / Windows app looks like the website and can tell you about updates.** Marketing version **1.3.9** (build **182**) for macOS, Linux and Windows. iPhone and iPad stay on 1.3.8 in the App Store for now.
+
+### Added
+- **Compare Conversations points at application differences, not only at TCP:** requests (method and path), `Host`, response codes, error messages and per-protocol counts come first. Passwords, `Authorization` headers and cookie values are masked in the comparison and in its PDF.
+- **Animate Circle** (Mac, Linux, Windows, iPhone / iPad): packets travel along the Circle's lines on the Hosts, Services and Networks layouts, during Demo Mode, a replay or a PCAP-over-IP capture. On by default; follows Reduce Motion.
+- **Search the Circle by port** (`port 5005`, `port 8000-8100`, `port 80,443`) and by CIDR block on every platform.
+- **Port mappings:** right-click a port in a conversation and name it after the service that runs on it.
+- **Check for updates** (Linux and Windows): a button in the About window. It asks www.netwho.ch for one small file only when you press it; nothing is downloaded or installed. See the [Privacy Policy](./PRIVACY.md).
+- **The dark theme follows www.netwho.ch** (Linux, Windows, Mac, iPhone / iPad); Inter and IBM Plex Mono are bundled in the Linux / Windows app.
+- **Mac:** a Settings gear in the toolbar.
+
+### Fixed
+- **Linux / Windows:** Compare looks like the Mac one and wraps long values; the Decode window shows every hex line with a header and a draggable divider; panel dividers join up; Reset lifts every filter; the selected pair is readable; the Capture window lists adapters by name.
+- **Windows:** live capture could not start because of the adapter's device name, and the Activity column stayed empty.
+- **Mac:** a refused capture asks for the administrator password instead of showing a raw libpcap error; Expand all / Collapse all in the Decode protocol tree; the `?` in the Circle's control strip matches the buttons beside it.
+
 ## 1.3.8 — 2026-11-03 (Tech Preview)
 
 **Networks replace Groups, live capture and the rest of the Mac front end run on Rust, and Expert findings lead to the packets they are about.** Marketing version **1.3.8** (macOS build **154**, Linux build **152**). iPhone and iPad 1.3.8 (build 23) is on the [App Store](https://apps.apple.com/my/app/packetcircle/id6795214325) since 2026-11-05; the signed Windows installer follows as a signed 1.3.8 build.

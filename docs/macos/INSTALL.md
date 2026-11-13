@@ -17,7 +17,7 @@ PacketCircle for macOS is a native SwiftUI app with the shared Rust analysis cor
 
 ## 2. Install
 
-1. Download `PacketCircle-<version>.dmg` (current: **1.3.8**).
+1. Download `PacketCircle-<version>.dmg` (current: **1.3.9**; from netwho.ch the disk image comes inside a .zip).
 2. Open the DMG and drag **PacketCircle** into **Applications**.
 3. Start it from Launchpad or Spotlight.
 
