@@ -75,7 +75,7 @@ We do **not** use your captures to train models, build profiles, or target ads.
 - The App does **not** upload your capture files to our servers.  
 - If **you** use system features (AirDrop, Files, Mail, Messages, opening a file in another app on Mac, iCloud Drive, etc.), those actions are initiated by you and governed by Apple’s / that product’s terms and privacy policy.
 
-**Update check (Linux and Windows only).** The Linux and Windows apps have a *Check for updates* button in the About window. Only when you press it, the app requests one small file (`latest.json`) from www.netwho.ch over HTTPS to learn the newest version number. The request contains no capture data and no identifiers beyond the app name and version; the web server may keep its usual access log. Nothing is checked automatically, and nothing is downloaded or installed. The iOS and macOS apps have no such button.
+**Update check (macOS, Linux and Windows only).** The macOS, Linux and Windows apps have a *Check for updates* button in the About and Help windows. Only when you press it, the app requests one small file (`latest.json`) from www.netwho.ch over HTTPS to learn the newest version number. The request contains no capture data and no identifiers beyond the app name and version; the web server may keep its usual access log. Nothing is checked automatically, and nothing is downloaded or installed. The iPhone and iPad app has no such button; the App Store updates it.
 
 Apple may collect App Store, TestFlight, or diagnostic information according to **your** device settings and [Apple’s Privacy Policy](https://www.apple.com/legal/privacy/). That collection is by Apple, not by PacketCircle’s analysis engine.
 
